@@ -54,17 +54,26 @@ while True:
             if os.path.isfile(file): files.append(file)
         print(files)
     elif action == 7:
-        print(platform.uname())
+        folders = [folder for folder in os.listdir() if os.path.isdir(folder)]
+        files = [file for file in os.listdir() if os.path.isfile(file)]
+        folders_formatted = 'Folders: ' + ','.join(folders) + '\n'
+        files_formatted = 'Files: ' + ','.join(files)
+
+        with open('listdir.txt', 'w') as f:
+            f.write(f'{folders_formatted}')
+            f.write(f'{files_formatted}')
     elif action == 8:
-        print('God is an only true creator of everything, we are just altering his creations')
+        print(platform.uname())
     elif action == 9:
-        victory(pshkn)
+        print('God is an only true creator of everything, we are just altering his creations')
     elif action == 10:
-        bank_account.accounting()
+        victory(pshkn)
     elif action == 11:
+        bank_account.accounting()
+    elif action == 13:
         pathtofile = input('Введите путь')
         os.chdir(f'{pathtofile}')
-    elif action == 12:
+    elif action == 13:
         break
     else:
         print('Неверный номер действия')
