@@ -7,8 +7,6 @@ def key_check(search_dict):
     new_key = input('Введите название:')
     if new_key in search_dict:
         new_key += '*'
-    else:
-        new_key = new_key
     return new_key
 
 
@@ -79,10 +77,7 @@ def accounting():
                 print('Недостаточно средств, сначала пополните счет.')
             pass
         elif choice == '3':
-            if os.path.exists('purchases_file.json'):
-                show_purchases(recent_purchases)
-            else:
-                print('Покупок не найдено')
+            show_purchases(recent_purchases) if len(recent_purchases) > 0 else print('Покупок не найдено')
             pass
         elif choice == '4':
             with open('acc_balance.txt', 'w') as f:

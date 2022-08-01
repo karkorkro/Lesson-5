@@ -1,5 +1,5 @@
 import pytest
-from bank_account import *
+from bank_account import charging
 
 
 @pytest.mark.parametrize('balance, price, expected_result',
