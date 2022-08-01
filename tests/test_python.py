@@ -1,14 +1,16 @@
 import pytest
+import math
 
-@pytest.mark.parametrize('fconcept, fobject, expected_result',
+
+@pytest.mark.parametrize('f_concept, f_object, expected_result',
                          # отфильтровывает все, что не является цифрами
                          [(str.isdigit, ['one', 'two', 'list', '', 'dict', '100', '1', '50'], ['100', '1', '50']),
                           # оставляет четные числа
                           (lambda x: x % 2 == 0, [10, 111, 102, 213, 314, 515], [10, 102, 314]),
                           # оставляет слова, в которых больше 2х букв
                           (lambda x: len(x) > 2, ['one', 'no', 'list', '', 'dict'], ['one', 'list', 'dict'])])
-def test_filter(fconcept, fobject, expected_result):
-    assert list(filter(fconcept, fobject)) == expected_result
+def test_filter(f_concept, f_object, expected_result):
+    assert list(filter(f_concept, f_object)) == expected_result
 
 
 def test_filter_no_function():
@@ -37,9 +39,6 @@ def test_sorted(it_object, expected_result):
                           ([3, 6, 3, 2, 4, 8, 23], lambda x: x % 2 == 0, [3, 3, 23, 6, 2, 4, 8])])
 def test_sorted_user_key(it_object, sort_key, expected_result):
     assert sorted(it_object, key=sort_key) == expected_result
-
-
-import math
 
 
 def test_math_pi():

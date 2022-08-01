@@ -1,9 +1,6 @@
 
 def check_answer(answer_entered, correct_answer):
-    if answer_entered == correct_answer:
-        print('Верно')
-    else:
-        print('Неверно')
+    print('Верно') if answer_entered == correct_answer else print('Неверно')
     return answer_entered == correct_answer
 
 
